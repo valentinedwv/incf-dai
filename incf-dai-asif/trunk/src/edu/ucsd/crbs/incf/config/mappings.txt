@@ -1,0 +1,17 @@
+cerebellum*alar plate
+cerebral cortex*cerebral cortex
+hippocampal region*cerebral cortex
+hippocampal formation*cerebral cortex
+retrohippocampal region*cerebral cortex
+hypothalamus*hypothalamus
+lateral septal complex*corpus striatum
+pallidum*corpus striatum
+striatum*corpus striatum
+striatum dorsal region*corpus striatum
+striatum ventral region*corpus striatum
+midbrain*midbrain
+medulla*medulla oblongata
+pons*basal plate
+striatum-like amygdalar nuclei*tail
+olfactory bulb*olfactory lobe
+thalamus*diencephalon

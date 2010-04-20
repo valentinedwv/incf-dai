@@ -1,0 +1,105 @@
+<?xml version="1.0"?>
+<!DOCTYPE project>
+<project name="incf-services" default="create-war" basedir=".">
+
+<target name="init">	
+<property name="src.dir" value="src"/>
+<property name="classes.dir" value="classes"/>
+<property name="lib.dir" value="lib"/>
+<!-- <property name="images.dir" value="images"/> -->
+<property name="dist.dir" value="dist"/>
+<property name="conf.dir" value="conf"/>
+<property name="pages.dir" value="pages"/>
+
+<!-- Classpath -->
+<path id="cp">
+   <fileset dir="${lib.dir}" includes="*.jar"/>
+</path>
+</target>
+
+<target name="clean" depends="init">
+<delete>
+   <fileset dir="${classes.dir}"/>
+   <fileset dir="${dist.dir}"/>
+</delete>
+</target>
+
+
+<target name="compile" depends="clean">
+
+<tstamp/>
+<mkdir dir="${classes.dir}"/>
+<mkdir dir="${classes.dir}/edu/ucsd/crbs/incf/config"/>
+
+<copy todir="${classes.dir}/edu/ucsd/crbs/incf/config"> 
+   <fileset dir="${src.dir}/edu/ucsd/crbs/incf/config"/>
+</copy>
+
+<javac srcdir="${src.dir}" destdir="${classes.dir}" classpathref="cp"
+   includes="edu/ucsd/crbs/incf/util/**, edu/ucsd/crbs/incf/common/**, 
+		     edu/ucsd/crbs/incf/exception/**, edu/ucsd/crbs/incf/components/**" /> 
+</target>
+
+<!-- create the jar file -->
+<target name="create-jar" depends="compile">
+<mkdir dir="${dist.dir}/WEB-INF/lib"/>
+<jar manifest="MANIFEST-INCF-SERVICES.MF" jarfile="${dist.dir}/WEB-INF/lib/incf-services.jar">
+    <fileset dir="${classes.dir}" includes="**"/>
+</jar>
+</target>
+
+    <!-- create the WAR file -->
+    <target name="create-war" depends="create-jar" >
+    
+    	<!-- copy the classes(.class files) -->
+    	<mkdir dir="${dist.dir}/WEB-INF/classes"/>
+        <copy todir="${dist.dir}/WEB-INF/classes">
+            <fileset dir="${classes.dir}"/>
+        </copy>
+    	
+    	<!-- copy the libraries(.jar files) -->
+    	<mkdir dir="${dist.dir}/WEB-INF/lib"/>
+    	<copy todir="${dist.dir}/WEB-INF/lib">
+    		<fileset dir="${lib.dir}" includes="*.jar"/>
+    	</copy>
+
+    	<!-- copy the images -->
+<!--    	
+		<mkdir dir="${dist.dir}/images"/>
+    	<copy todir="${dist.dir}/images">
+    		<fileset dir="${images.dir}" includes=""/>
+    	</copy>
+-->
+    	<!-- copy the pages -->
+		<mkdir dir="${dist.dir}/pages"/>
+    	<copy todir="${dist.dir}/pages">
+    		<fileset dir="${pages.dir}" includes=""/>
+    	</copy>
+
+    	<!-- copy the config file(.xml files) -->
+    	<mkdir dir="${dist.dir}/WEB-INF/classes/edu/ucsd/crbs/incf/config"/>
+    	<mkdir dir="${dist.dir}/WEB-INF/classes/edu/ucsd/crbs/incf/config"/>
+    	<copy todir="${dist.dir}/WEB-INF/classes/edu/ucsd/crbs/incf/config">
+    		<fileset dir="${src.dir}/edu/ucsd/crbs/incf/config" includes=""/>
+    	</copy>
+
+		<!-- copy web.xml file -->
+    	<copy todir="${dist.dir}/WEB-INF">
+    		<fileset dir="${src.dir}/edu/ucsd/crbs/incf/config" includes="web.xml"/>
+    	</copy>
+
+		<!-- copy other files necessary for running the application -->
+		<mkdir dir="${dist.dir}/pages"/>
+    	<copy todir="${dist.dir}/pages">
+			<fileset dir="${src.dir}/edu/ucsd/crbs/incf/pages" includes=""/>
+    	</copy>
+
+    	<war warfile="${dist.dir}/incf-services.war" webxml="${dist.dir}/WEB-INF/web.xml" compress="true" basedir="${dist.dir}"/>
+
+    </target>
+
+
+<target name="all" depends="create-war">
+</target>
+
+</project>

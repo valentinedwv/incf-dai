@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<!DOCTYPE web-app
+
+    PUBLIC "-//Sun Microsystems, Inc.//DTD Web Application 2.2//EN"
+    "http://java.sun.com/j2ee/dtds/web-app_2.2.dtd">
+
+<web-app>
+
+  <welcome-file-list id="WelcomeFileList">
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>index.jws</welcome-file>
+  </welcome-file-list>
+
+  <servlet>
+      <servlet-name>ABAServiceController</servlet-name>
+      <display-name>ABA Service Controller</display-name>
+      <servlet-class>
+          edu.ucsd.crbs.incf.components.services.aba.ABAServiceController
+      </servlet-class>
+      <init-param>
+        <param-name>driverClassName</param-name>
+        <param-value>oracle.jdbc.driver.OracleDriver</param-value>
+      </init-param>
+      <init-param>
+      	<param-name>atlasDbURL</param-name>
+      	<param-value>jdbc:oracle:thin:@//oracle-rac1.crbs.ucsd.edu:1523/ccdbpri1</param-value>
+      </init-param>
+      <init-param>
+        <param-name>atlasDbUsername</param-name>
+        <param-value>atlas</param-value>
+      </init-param>
+      <init-param>
+        <param-name>atlasDbPassword</param-name>
+        <param-value>beer</param-value>
+      </init-param>
+	  <load-on-startup>2</load-on-startup>
+    </servlet>
+
+  <servlet-mapping>
+      <servlet-name>ABAServiceController</servlet-name>
+      <url-pattern>/service/ABAServiceController</url-pattern>
+  </servlet-mapping>
+  
+<servlet>
+  <servlet-name>WHSServiceController</servlet-name>
+  <display-name>WHS Service Controller</display-name>
+  <servlet-class>
+	  edu.ucsd.crbs.incf.components.services.whs.WHSServiceController
+  </servlet-class>
+  <load-on-startup>1</load-on-startup>
+</servlet>
+
+  <servlet-mapping>
+      <servlet-name>WHSServiceController</servlet-name>
+      <url-pattern>/service/WHSServiceController</url-pattern>
+  </servlet-mapping>
+
+<servlet>
+  <servlet-name>WBCClientServiceController</servlet-name>
+  <display-name>WBC Client Service Controller</display-name>
+  <servlet-class>
+	  edu.ucsd.crbs.incf.components.clients.wbc.WBCClientServiceController
+  </servlet-class>
+  <load-on-startup>3</load-on-startup>
+</servlet>
+
+<servlet-mapping>
+  <servlet-name>WBCClientServiceController</servlet-name>
+  <url-pattern>/service/wbc</url-pattern>
+</servlet-mapping>
+
+<servlet>
+  <servlet-name>EmageServiceController</servlet-name>
+  <display-name>Emage Service Controller</display-name>
+  <servlet-class>
+	  edu.ucsd.crbs.incf.components.services.emage.EmageServiceController
+  </servlet-class>
+  <load-on-startup>4</load-on-startup>
+</servlet>
+
+<servlet-mapping>
+  <servlet-name>EmageServiceController</servlet-name>
+  <url-pattern>/service/EmageServiceController</url-pattern>
+</servlet-mapping>
+
+<servlet>
+  <servlet-name>UCSDServiceController</servlet-name>
+  <display-name>UCSD Service Controller</display-name>
+  <servlet-class>
+	  edu.ucsd.crbs.incf.components.services.ucsd.UCSDServiceController
+  </servlet-class>
+  <load-on-startup>5</load-on-startup>
+</servlet>
+
+<servlet-mapping>
+  <servlet-name>UCSDServiceController</servlet-name>
+  <url-pattern>/service/UCSDServiceController</url-pattern>
+</servlet-mapping>
+
+</web-app>

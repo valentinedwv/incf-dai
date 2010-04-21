@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            xmlns:jxb="http://java.sun.com/xml/ns/jaxb"
+            jxb:version="2.0">
+
+  <xsd:element name="Capabilities">
+  <xsd:complexType>
+    <xsd:sequence>
+      <xsd:element name="ServiceIdentification" type="ServiceIdentification"/>
+      <xsd:element name="ServiceProvider" type="ServiceProvider"/>
+      <!-- ... -->
+    </xsd:sequence>
+  </xsd:complexType>
+  </xsd:element>
+  
+  
+  <xsd:complexType name="ServiceIdentification">
+    <xsd:sequence>
+      <xsd:element name="Title" type="xsd:string"/>
+      <xsd:element name="Abstract" type="xsd:string"/>
+      <xsd:element name="ServiceType" type="xsd:string"/>
+      <xsd:element name="ServiceVersion" type="xsd:string"/>
+      <xsd:element name="Fees" type="xsd:string"/>
+      <xsd:element name="AccessConstraints" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  
+  <xsd:complexType name="ServiceProvider">
+    <xsd:sequence>
+      <xsd:element name="ProviderName" type="xsd:string"/>
+      <xsd:element name="ServiceContact" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  
+  <!-- ... -->
+
+</xsd:schema>

@@ -2,9 +2,11 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>edu.ucsd.crbs.incfdemo</groupId>
   <artifactId>incf-demo</artifactId>
-  <name>INCF Demo of JAXB</name>
   <version>0.0.1-SNAPSHOT</version>
+  <packaging>war</packaging>
+  <name>INCF Demo of JAXB</name>
   <description>Description</description>
+  <url>http://localhost:8080/incf-demo</url>
 
   <build>
     <resources>
@@ -56,6 +58,11 @@
     <dependency>
       <groupId>org.restlet</groupId>
       <artifactId>org.restlet.ext.jaxb</artifactId>
+      <version>1.1.1</version>
+    </dependency>
+    <dependency>
+      <groupId>com.noelios.restlet</groupId>
+      <artifactId>com.noelios.restlet.ext.servlet</artifactId>
       <version>1.1.1</version>
     </dependency>
     <dependency>

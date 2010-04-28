@@ -1,4 +1,21 @@
 #labels INCF,UCSD,CRBS
+=Base URIs=
+
+http://{{{<server>}}}:{{{<port>}}}/atlas/
+http://`<server>`:`<port>`/<hub>/atlas/
+
+Servers
+*central.incf.org
+*hubs.incf.org
+
+The port will be 8080 or unspecified which defaults to 80.
+
+Base URI examples:
+*http://central.incf.org/atlas/
+*http://central.incf.org:8080/atlas/
+*http://hubs.incf.org/aba/atlas/
+*http://hubs.incf.org:8080/ucsd/atlas/
+
 #Interface definition for INCF web services.
 
 = URL Query String Parameters =

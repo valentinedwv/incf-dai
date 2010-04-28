@@ -34,6 +34,18 @@ For example:
  * http://central.incf.org/atlas?Request=GetCapabilities&ResponseFormat=text/xml
  * http://hubs.incf.org/aba/atlas/?Request=Execute&Identifier=GetGenesByPOI&DataInputs=srsCode=WHS;x=263.7;y=159.4;z=227.8&ResponseFormat=text/xml
 
+=Project Technologies=
+ * Primary language: Java
+ * Build: Maven
+ * Source code management: SVN
+ * Packaging: WAR (.war file)
+ * Database: PostgreSQL
+ * XML specification: XML Schema (.xsd documents)
+ * XML-object mapping: JAXB
+ * Server: Tomcat
+ * Application architecture: RESTlets under controlling servlet
+ * ORM: JPA/Hibernate
+
 =Java Package Names=
 
  * org.incf.atlas.server.central

@@ -65,4 +65,4 @@ For example:
  * org.incf.atlas.server.hubs.ucsd.database
  * org.incf.atlas.server.hubs.ucsd.resource
  * org.incf.atlas.server.hubs.ucsd.transform
- * org.incf.atlas.server.hubs.ucsd.util#summary One-sentence summary of this page.
+ * org.incf.atlas.server.hubs.ucsd.util

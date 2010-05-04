@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            xmlns:jxb="http://java.sun.com/xml/ns/jaxb"
+            jxb:version="2.0">
+
+  <xsd:element name="StructureNames">
+  <xsd:complexType>
+    <xsd:sequence>
+      <xsd:element name="SrsCode" type="xsd:string"/>
+      <xsd:element name="X" type="xsd:string"/>
+      <xsd:element name="Y" type="xsd:string"/>
+      <xsd:element name="Z" type="xsd:string"/>
+      <xsd:element name="Vocabulary" type="xsd:string"/>
+      <xsd:element name="Filter" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  </xsd:element>
+  
+</xsd:schema>

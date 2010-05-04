@@ -4,6 +4,7 @@ import org.incf.atlas.server.central.resource.CapabilitiesResource;
 import org.incf.atlas.server.central.resource.FaviconResource;
 import org.incf.atlas.server.central.resource.GenesByPOIResource;
 import org.incf.atlas.server.central.resource.PingResource;
+import org.incf.atlas.server.central.resource.StructureNamesByPOIResource;
 import org.restlet.Application;
 import org.restlet.Component;
 import org.restlet.Restlet;
@@ -49,6 +50,11 @@ public class ServerApplication extends Application {
 		router.attach("?Request=Execute&Identifier=GetGenesByPOI"
 				+ "&DataInputs={dataInputs}",
 				GenesByPOIResource.class);
+
+		//GetStructureNamesByPOI
+		router.attach("?Request=Execute&Identifier=GetStructureNamesByPOI"
+				+ "&DataInputs={dataInputs}",
+				StructureNamesByPOIResource.class);
 
 		return router;
 	}

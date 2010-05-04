@@ -102,4 +102,14 @@ data-inputs={key-1}={value-1};{key-2}={value-2};...;{key-n}={value-n}
     <td>GetGenesByPOI</td>
     <td>srsCode<br/>x<br/>y<br/>z<br/></td>
   </tr>
+  <tr>
+    <td>Execute</td>
+    <td>GetStructureNamesByPOI</td>
+    <td>srsCode<br/>x<br/>y<br/>z<br/>vocabulary<br/>filter</td>
+  </tr>
+  <tr>
+    <td>Execute</td>
+    <td>GetTransformationChain</td>
+    <td>inputSrsCode<br/>targetSrsCode<br/>filter</td>
+  </tr>
 </table>

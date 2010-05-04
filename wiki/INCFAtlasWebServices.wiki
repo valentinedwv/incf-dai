@@ -66,3 +66,40 @@ For example:
  * org.incf.atlas.server.hubs.ucsd.resource
  * org.incf.atlas.server.hubs.ucsd.transform
  * org.incf.atlas.server.hubs.ucsd.util
+
+= URI Suffixes =
+
+Full URI = Base URI + URI Suffixes
+
+?Request={request}&Identifier={identifier}&DataInputs={data-inputs}&ResponseFormat={format}
+
+request={ GetCapabilities | DescribeProcess | Execute }
+
+identifier = { function-name }
+
+data-inputs={key-1}={value-1};{key-2}={value-2};...;{key-n}={value-n}
+
+
+
+<table style="color:black; background-color:#ffffcc;" cellpadding="20" cellspacing="0" border="1">
+  <tr>
+    <th>Request</th>
+    <th>Identifier</th>
+    <th>DataInputs<br/>(keys)</th>
+  </tr>
+  <tr>
+    <td>GetCapabilities</td>
+    <td>n/a</td>
+    <td>n/a</td>
+  </tr>
+  <tr>
+    <td>DescribeProcess</td>
+    <td>n/a</td>
+    <td>n/a</td>
+  </tr>
+  <tr>
+    <td>Execute</td>
+    <td>GetGenesByPOI</td>
+    <td>srsCode<br/>x<br/>y<br/>z<br/></td>
+  </tr>
+</table>

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wps:Capabilities 
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xmlns="http://www.opengis.net/wps" 
+    xmlns:wps="http://www.opengis.net/wps" 
+    xmlns:ows="http://www.opengis.net/ows" version="1.0.0" 
+    xmlns:ogc="http://www.opengis.net/ogc" 
+    xmlns:xlink="http://www.w3.org/1999/xlink" 
+    xsi:schemaLocation="http://www.opengis.net/wps/1.0.0 ../wpsGetCapabilities_request.xsd">
+  <ows:ServiceIdentification xmlns:ows="http://www.opengis.net/ows">
+    <ows:Title>ABA Services</ows:Title>
+    <ows:Abstract>ABA Services are created to access various ABA hub features. The services are either implemented at the INCF central server, or represent wrappers of ABA API calls implemented at the ABA site.</ows:Abstract>
+    <ows:ServiceType>WPS</ows:ServiceType>
+    <ows:ServiceTypeVersion>0.2.41.0.0</ows:ServiceTypeVersion>
+    <ows:Fees>NONE</ows:Fees>
+    <ows:AccessConstraints>NONE</ows:AccessConstraints>
+  </ows:ServiceIdentification>
+  <ows:ServiceProvider>
+    <ows:ProviderName>Asif Memon</ows:ProviderName>
+    <ows:ServiceContact>amemon@ncmir.ucsd.edu</ows:ServiceContact>
+  </ows:ServiceProvider>
+  <ows:OperationsMetadata>
+    <ows:Operation name="GetCapabilities" />
+  </ows:OperationsMetadata>
+  <wps:ProcessOfferings>
+    <wps:Process>
+      <ows:Identifier>GetCorrelationMapByPOI</ows:Identifier>
+      <ows:Title>Get Correlation Map</ows:Title>
+      <ows:Description>This method will return the URL and load the correlation map interface in the browser, for a point of interest (POI) in a specified Spatial Reference System (SRS) </ows:Description>
+    </wps:Process>
+    <wps:Process>
+      <ows:Identifier>GetStructureNamesByPOI</ows:Identifier>
+      <ows:Title>Get structure name by POI</ows:Title>
+      <ows:Description>Returns Fine/Anatomic structures segmented for the POI in  a specified SRS </ows:Description>
+    </wps:Process>
+    <wps:Process>
+      <ows:Identifier>Get2DImagesByPOI</ows:Identifier>
+      <ows:Title>Get 2D Image at POI</ows:Title>
+      <ows:Description>Returns 2 Dimensional image given a POI in  a specified SRS </ows:Description>
+    </wps:Process>
+    <wps:Process>
+      <ows:Identifier>GetGenesByPOI</ows:Identifier>
+      <ows:Title>Get genes by POI</ows:Title>
+      <ows:Description>Returns genes detected at a POI in  a specified SRS </ows:Description>
+    </wps:Process>
+    <wps:Process>
+      <ows:Identifier>GetGenesByStructureName</ows:Identifier>
+      <ows:Title>Get genes by Structure Name</ows:Title>
+      <ows:Description>Returns genes detected for structure name at a specified vocabulary</ows:Description>
+    </wps:Process>
+    <wps:Process>
+      <ows:Identifier>TransformPOI</ows:Identifier>
+      <ows:Title>Atlas Space Transformation from WHS and one or more coordinate spaces local to the hub </ows:Title>
+      <ows:Description>Finds, transforms and executes the best coordinate transformation between WHS, ABAvoxel, ABAreference, and AGEA spaces</ows:Description>
+    </wps:Process>
+  </wps:ProcessOfferings>
+  <wps:Languages>
+    <wps:Default>
+      <ows:Language>en-US</ows:Language>
+    </wps:Default>
+    <wps:Supported>
+      <ows:Language>en-US</ows:Language>
+    </wps:Supported>
+  </wps:Languages>
+</wps:Capabilities>

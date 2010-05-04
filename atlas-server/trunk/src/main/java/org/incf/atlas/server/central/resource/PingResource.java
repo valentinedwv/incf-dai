@@ -22,11 +22,11 @@ public class PingResource extends Resource {
 	public PingResource(Context context, Request request, Response response) {
 		super(context, request, response);
 		String pingType = (String) request.getAttributes().get("pingType"); 
-		if (pingType.equals("server")) {
+//		if (pingType.equals("server")) {
 			StringBuilder buf = new StringBuilder();
 			buf.append("Server responds to ping type: ").append(pingType);
 			pingResponse = buf.toString();
-		}
+//		}
 
 		// if found, set media type
 		// by default: available is true; modifiable is false

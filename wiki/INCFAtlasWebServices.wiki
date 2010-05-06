@@ -14,9 +14,9 @@ http://incf-dev-local.crbs.ucsd.edu:8080/atlas?Request=GetCapabilities
 
     Returns an mock XML document.
 
-http://incf-dev-local.crbs.ucsd.edu:8080/atlas?Request=Execute&Identifier=GetGenesByPOI&DataInputs=srsCode=[any-value];x=[number];y=[number];z=[number]
+http://incf-dev-local.crbs.ucsd.edu:8080/atlas?Request=Execute&Identifier=GetGenesByPOI&DataInputs=srsCode=WHS;x=1.1;y=2.2;z=3.3
 
-    Returns and XML document echoing the data input key/value pairs.
+    Returns and XML document echoing the data input key/value pairs. Any of the DataInputs key/value pairs may be changed.
 
 = Planned Base URIs=
  * http://[server]:[port]/atlas
@@ -134,8 +134,38 @@ data-inputs={key-1}={value-1};{key-2}={value-2};...;{key-n}={value-n}
   </tr>
   <tr>
     <td>Execute</td>
-    <td>GetGenesByPOI</td>
+    <td>DescribeSRS</td>
+    <td>srsCode</td>
+  </tr>
+  <tr>
+    <td>Execute</td>
+    <td>DescribeTransformation</td>
+    <td>TBD</td>
+  </tr>
+  <tr>
+    <td>Execute</td>
+    <td>Get2DImagesByPOI</td>
+    <td>srsCode<br/>x<br/>y<br/>z<br/>filter</td>
+  </tr>
+  <tr>
+    <td>Execute</td>
+    <td>GetCorrelationMapByPOI<br/>(ABA hub only)</td>
+    <td>srsCode<br/>x<br/>y<br/>z<br/>filter</td>
+  </tr>
+  <tr>
+    <td>Execute</td>
+    <td>GetCoverage</td>
+    <td>TBD</td>
+  </tr>
+  <tr>
+    <td>Execute</td>
+    <td>GetGenesByPOI<br/>(ABA hub only)</td>
     <td>srsCode<br/>x<br/>y<br/>z<br/></td>
+  </tr>
+  <tr>
+    <td>Execute</td>
+    <td>GetMap</td>
+    <td>TBD</td>
   </tr>
   <tr>
     <td>Execute</td>
@@ -146,5 +176,20 @@ data-inputs={key-1}={value-1};{key-2}={value-2};...;{key-n}={value-n}
     <td>Execute</td>
     <td>GetTransformationChain</td>
     <td>inputSrsCode<br/>targetSrsCode<br/>filter</td>
+  </tr>
+  <tr>
+    <td>Execute</td>
+    <td>ListSRSs</td>
+    <td>n/a</td>
+  </tr>
+  <tr>
+    <td>Execute</td>
+    <td>ListTransformations</td>
+    <td>TBD</td>
+  </tr>
+  <tr>
+    <td>Execute</td>
+    <td>TransformPOI</td>
+    <td>inputSrsCode<br/>targetSrsCode<br/>x<br/>y<br/>z<br/>filter</td>
   </tr>
 </table>

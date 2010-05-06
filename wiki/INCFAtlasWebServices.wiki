@@ -108,13 +108,17 @@ Full URI = Base URI + URI Suffixes
 
 ?Request={request}&Identifier={identifier}&DataInputs={data-inputs}&ResponseFormat={format}
 
-request={ GetCapabilities | DescribeProcess | Execute }
+Request = { GetCapabilities | DescribeProcess | Execute }
 
-identifier = { function-name }
+Identifier = { function-name }
 
-data-inputs={key-1}={value-1};{key-2}={value-2};...;{key-n}={value-n}
+DataInputs={key-1}={value-1};{key-2}={value-2};...;{key-n}={value-n}
 
-
+DataInuts keys:
+ * srsCode, inputSrsCode, targetSrsCode = { Spacial Reference System code }
+ * x, y, z = { integer | floating-point number }
+ * vocabulary = { { hub } : { srs | vocabulary } : { code } }
+ * filter = {
 
 <table style="color:black; background-color:#ffffcc;" cellpadding="20" cellspacing="0" border="1">
   <tr>

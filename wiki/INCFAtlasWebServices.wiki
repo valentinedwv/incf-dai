@@ -65,21 +65,25 @@ For example:
  * ORM: JPA/Hibernate
 
 = Database Tables =
- * Central
-   * Project
-   * Hub
-   * SpacialObject
-   * HubService
-   * CoordinateTransformation
-   * Proces
-   * ProcessParameter
- * Spaces
+
+== Central Database ==
+ * Project
+ * Hub
+ * SpacialObject
+ * HubService
+ * CoordinateTransformation
+ * Process
+ * ProcessParameter
+ * Spaces tables
    * Author
    * Orientation
    * SRS
    * Slice
    * Fiducial
    * Structure
+
+== Hub Databases ==
+Same as Central except no Hub table
 
 =Java Package Names=
 

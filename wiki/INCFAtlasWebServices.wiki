@@ -12,9 +12,9 @@ http://incf-dev-local.crbs.ucsd.edu:8080/atlas/ping/server
 
 http://incf-dev-local.crbs.ucsd.edu:8080/atlas?Request=GetCapabilities
 
-    Returns an XML document fragment.
+    Returns an mock XML document.
 
-http://incf-dev-local.crbs.ucsd.edu:8080/atlas?Request=Execute&Identifier=GetGenesByPOI&DataInputs=srsCode=<any-value>;x=<number>;y=<number>;z=<number>
+http://incf-dev-local.crbs.ucsd.edu:8080/atlas?Request=Execute&Identifier=GetGenesByPOI&DataInputs=srsCode=[any-value];x=[number];y=[number];z=[number]
 
     Returns and XML document echoing the data input key/value pairs.
 

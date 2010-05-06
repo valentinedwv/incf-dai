@@ -1,5 +1,5 @@
 #labels INCF,Atlas,Webservice
-= Function URIs =
+= Currently Functioning Test and Demonstration URIs =
 At this time these URIs have just been established to support testing.
 
 http://incf-dev-local.crbs.ucsd.edu:8080/atlas/favicon.ico
@@ -18,10 +18,9 @@ http://incf-dev-local.crbs.ucsd.edu:8080/atlas?Request=Execute&Identifier=GetGen
 
     Returns and XML document echoing the data input key/value pairs.
 
-=Base URIs=
-
- * http://< server >:< port >/atlas
- * http://< server >:< port >/< hub >/atlas
+= Planned Base URIs=
+ * http://[server]:[port]/atlas
+ * http://[server]:[port]/[hub]/atlas
 
 Servers
  * central.incf.org
@@ -64,6 +63,23 @@ For example:
  * Server: Tomcat
  * Application architecture: RESTlets under controlling servlet
  * ORM: JPA/Hibernate
+
+= Database Tables =
+ * Central
+   * Project
+   * Hub
+   * SpacialObject
+   * HubService
+   * CoordinateTransformation
+   * Proces
+   * ProcessParameter
+ * Spaces
+   * Author
+   * Orientation
+   * SRS
+   * Slice
+   * Fiducial
+   * Structure
 
 =Java Package Names=
 

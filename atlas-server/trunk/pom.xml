@@ -29,10 +29,14 @@
           </execution>
         </executions>
         <configuration>
-          <schemaDirectory>${basedir}/src/main/resources/</schemaDirectory>
+          <schemaDirectory>${basedir}/src/main/resources/wpsSchema/</schemaDirectory>
 		  <generatePackage>org.incf.atlas</generatePackage>
+          <excludeSchemas>
+            <excludeSchema></excludeSchema>
+          </excludeSchemas>
 		  <includeSchemas>
-		    <includeSchema>**/*.xsd</includeSchema>
+<!--             <includeSchema>**/*.xsd</includeSchema> -->
+            <includeSchema>wpsGetCapabilities_response.xsd</includeSchema>
 		  </includeSchemas>
 		  <strict>true</strict>
 		  <verbose>true</verbose>       

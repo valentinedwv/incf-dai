@@ -29,19 +29,13 @@
           </execution>
         </executions>
         <configuration>
-        <!--
-          <schemaFiles>capabilities.xsd</schemaFiles>
           <schemaDirectory>${basedir}/src/main/resources/</schemaDirectory>
-          <packageName>org.incf.atlas</packageName> 
-        -->
-        <schemaDirectory>${basedir}/src/main/resources/</schemaDirectory>
-		<generatePackage>org.incf.atlas</generatePackage>
-		<includeSchemas>
-		<includeSchema>**/*.xsd</includeSchema>
-		</includeSchemas>
-		<strict>true</strict>
-		<verbose>true</verbose>       
-        
+		  <generatePackage>org.incf.atlas</generatePackage>
+		  <includeSchemas>
+		    <includeSchema>**/*.xsd</includeSchema>
+		  </includeSchemas>
+		  <strict>true</strict>
+		  <verbose>true</verbose>       
         </configuration>
       </plugin>
       <plugin>

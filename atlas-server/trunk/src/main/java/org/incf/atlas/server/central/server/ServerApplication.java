@@ -52,6 +52,7 @@ public class ServerApplication extends Application {
 				GenesByPOIResource.class);
 
 		//GetStructureNamesByPOI
+		//             ?Request=Execute&Identifier=GetStructureNamesByPOI&DataInputs=srsCode=a;x=1;y=2;z=3;vocabulary=ss;filter=kk
 		router.attach("?Request=Execute&Identifier=GetStructureNamesByPOI"
 				+ "&DataInputs={dataInputs}",
 				StructureNamesByPOIResource.class);

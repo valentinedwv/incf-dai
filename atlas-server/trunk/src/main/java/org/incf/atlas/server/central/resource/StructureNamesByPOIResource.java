@@ -28,7 +28,9 @@ public class StructureNamesByPOIResource extends Resource {
 			Response response) {
 		super(context, request, response);
 		
+		System.out.println("You are in");
 		dataInputString = (String) request.getAttributes().get("dataInputs"); 
+		System.out.println("dataInputString " + dataInputString );
 		
 		dataInputs = new DataInputs(dataInputString);
 		

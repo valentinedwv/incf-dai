@@ -60,7 +60,7 @@
   </xs:complexType>
   
   <xs:element name="boundedBy" type="ns0:BoundingShapeType" />
-  
+
   <xs:complexType name="CoordinateTransformationInfoType">
     <xs:sequence>
       <xs:element minOccurs="1" maxOccurs="unbounded"

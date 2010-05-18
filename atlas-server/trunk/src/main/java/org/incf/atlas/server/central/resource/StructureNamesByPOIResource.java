@@ -1,8 +1,7 @@
 package org.incf.atlas.server.central.resource;
 
-import generated.ObjectFactory;
-import generated.StructureNames;
-
+import org.incf.atlas.ObjectFactory;
+import org.incf.atlas.StructureNames;
 import org.incf.atlas.server.central.util.DataInputs;
 import org.restlet.Context;
 import org.restlet.data.MediaType;
@@ -17,7 +16,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public class StructureNamesByPOIResource extends Resource {
-	
+
 	private final Logger logger = LoggerFactory.getLogger(
 			StructureNamesByPOIResource.class);
 	

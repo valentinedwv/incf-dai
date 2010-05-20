@@ -4,11 +4,8 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Set;
 
-import generated.CoordinateTransformationChain;
 import generated.CoordinateTransformationChainResponse;
 import generated.ObjectFactory;
-import generated.QueryInfo;
-import generated.CoordinateTransformationChain.CoordinateTransformation;
 
 import org.incf.atlas.server.central.util.DataInputs;
 import org.incf.atlas.server.hubs.aba.util.ABAUtil;
@@ -23,8 +20,6 @@ import org.restlet.resource.ResourceException;
 import org.restlet.resource.Variant;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-import com.sun.xml.bind.v2.schemagen.xmlschema.List;
 
 public class CoordinateTransformationChainResource extends Resource {
 
@@ -98,35 +93,6 @@ public class CoordinateTransformationChainResource extends Resource {
         url = hostName + servicePath + "&DataInputs=" + dataInputString;
         vo.setUrlString(url);
         
-/*		ObjectFactory of = new ObjectFactory();
-
-		CoordinateTransformation coordinateTransformation1 = new CoordinateTransformation();
-		coordinateTransformation1.setCode("ABA2WHS");
-		coordinateTransformation1.setHub("aba");
-		coordinateTransformation1.setInputSrsCode("ABA");
-		coordinateTransformation1.setTargetSrsCode("WHS");
-		coordinateTransformation1.setOrder("1");
-
-		CoordinateTransformation coordinateTransformation2 = new CoordinateTransformation();
-		coordinateTransformation2.setCode("WHS2Paxinos");
-		coordinateTransformation2.setHub("aba");
-		coordinateTransformation2.setInputSrsCode("WHS");
-		coordinateTransformation2.setTargetSrsCode("Paxinos");
-		coordinateTransformation2.setOrder("2");
-
-		CoordinateTransformationChain coordinateTransformationInfo = 
-			of.createCoordinateTransformationChain();
-		coordinateTransformationInfo.getCoordinateTransformation().add(coordinateTransformation1);
-		coordinateTransformationInfo.getCoordinateTransformation().add(coordinateTransformation2);
-
-		QueryInfo queryInfo = of.createQueryInfo();
-		queryInfo.setQueryUrl("http:");
-		queryInfo.setTimeCreated("Right Now");
-
-		CoordinateTransformationChainResponse response = of.createCoordinateTransformationChainResponse();
-		response.setQueryInfo(queryInfo);
-		response.setCoordinateTransformationChain(coordinateTransformationInfo);
-*/
 		ObjectFactory of = new ObjectFactory();
 		CoordinateTransformationChainResponse coordinateChain = of.createCoordinateTransformationChainResponse();
 

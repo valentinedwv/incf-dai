@@ -1,13 +1,21 @@
 package org.incf.atlas.server.central.resource;
 
+import generated.Capabilities;
+import generated.ObjectFactory;
+import generated.ServiceIdentification;
+import generated.ServiceProvider;
+
 import java.util.Map;
 import java.util.Set;
 
-import org.incf.atlas.Capabilities;
+/*import org.incf.atlas.Capabilities;
 import org.incf.atlas.ObjectFactory;
 import org.incf.atlas.ServiceIdentification;
 import org.incf.atlas.ServiceProvider;
-import org.restlet.Context;
+
+import net.opengis.ows._1.ServiceIdentification;
+
+*/import org.restlet.Context;
 import org.restlet.data.Form;
 import org.restlet.data.MediaType;
 import org.restlet.data.Request;

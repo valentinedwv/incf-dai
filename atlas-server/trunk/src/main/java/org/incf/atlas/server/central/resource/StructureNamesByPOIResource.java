@@ -1,7 +1,8 @@
 package org.incf.atlas.server.central.resource;
 
-import org.incf.atlas.ObjectFactory;
-import org.incf.atlas.StructureNames;
+import generated.ObjectFactory;
+import generated.StructureNames;
+
 import org.incf.atlas.server.central.util.DataInputs;
 import org.restlet.Context;
 import org.restlet.data.MediaType;
@@ -20,7 +21,7 @@ public class StructureNamesByPOIResource extends Resource {
 	private final Logger logger = LoggerFactory.getLogger(
 			StructureNamesByPOIResource.class);
 	
-	private String dataInputString;
+	private String dataInputString; 
 	private DataInputs dataInputs;
 	
 	public StructureNamesByPOIResource(Context context, Request request, 
@@ -57,7 +58,7 @@ public class StructureNamesByPOIResource extends Resource {
 		ObjectFactory of = new ObjectFactory();
 		
 		StructureNames structureNames = 
-			of.createStructureNames();
+			of.createStructureNames(); 
 		
 		structureNames.setSrsCode(dataInputs.getValue("srsCode"));
 		structureNames.setX(dataInputs.getValue("x"));

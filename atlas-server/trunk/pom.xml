@@ -29,14 +29,15 @@
           </execution>
         </executions>
         <configuration>
-          <schemaDirectory>${basedir}/src/main/resources/wpsSchema/</schemaDirectory>
+          <schemaDirectory>${basedir}/src/main/resources/</schemaDirectory>
+         <!-- <schemaDirectory>${basedir}/src/main/resources/</schemaDirectory> -->
 		  <generatePackage>org.incf.atlas</generatePackage>
           <excludeSchemas>
             <excludeSchema></excludeSchema>
           </excludeSchemas>
 		  <includeSchemas>
-<!--             <includeSchema>**/*.xsd</includeSchema> -->
-            <includeSchema>wpsGetCapabilities_response.xsd</includeSchema>
+<!--  <includeSchema>**/*.xsd</includeSchema> -->
+<includeSchema>/*.xsd</includeSchema> 
 		  </includeSchemas>
 		  <strict>true</strict>
 		  <verbose>true</verbose>       
@@ -87,6 +88,17 @@
       <artifactId>slf4j-log4j12</artifactId>
       <version>1.5.8</version>
     </dependency>
+    <dependency>
+      <groupId>com.sun.xml.bind</groupId>
+      <artifactId>jaxb-impl</artifactId>
+      <version>2.1</version>
+      <classifier>EA1</classifier>
+    </dependency>
+	<dependency>
+   	  <groupId>org.jdom</groupId>
+      <artifactId>jdom</artifactId>
+    <version>1.1</version>
+</dependency>
   </dependencies>
   
 </project>

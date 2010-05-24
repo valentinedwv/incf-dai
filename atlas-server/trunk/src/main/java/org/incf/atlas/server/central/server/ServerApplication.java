@@ -32,9 +32,9 @@ public class ServerApplication extends Application {
 		/* GetCapabilities
 		 * ?request=GetCapabilities&output=xml
 		 */
-		router.attach("?Request=GetCapabilities", 
+		router.attach("/?Request=GetCapabilities", 
 				CapabilitiesResource.class);
-		router.attach("?Request=GetCapabilities"
+		router.attach("/?Request=GetCapabilities"
 				+ "&ResponseFormat={responseFormat}", 
 				CapabilitiesResource.class);
 		

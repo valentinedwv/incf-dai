@@ -33,11 +33,12 @@
          <!-- <schemaDirectory>${basedir}/src/main/resources/</schemaDirectory> -->
 		  <generatePackage>org.incf.atlas</generatePackage>
           <excludeSchemas>
-            <excludeSchema></excludeSchema>
+            <excludeSchema>capabilities.xsd</excludeSchema>
+            <excludeSchema>structureNames.xsd</excludeSchema>
           </excludeSchemas>
 		  <includeSchemas>
 <!--  <includeSchema>**/*.xsd</includeSchema> -->
-<includeSchema>/*.xsd</includeSchema> 
+<includeSchema>wpsSchema/common/wpsGetCapabilities_response.xsd</includeSchema> 
 		  </includeSchemas>
 		  <strict>true</strict>
 		  <verbose>true</verbose>       

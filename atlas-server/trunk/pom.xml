@@ -37,8 +37,10 @@
             <excludeSchema>structureNames.xsd</excludeSchema>
           </excludeSchemas>
 		  <includeSchemas>
-<!--  <includeSchema>**/*.xsd</includeSchema> -->
-<includeSchema>wpsSchema/common/wpsGetCapabilities_response.xsd</includeSchema> 
+            <includeSchema>**/*.xsd</includeSchema>
+            <includeSchema>wpsSchema/wpsGetCapabilities_response.xsd</includeSchema> 
+            <includeSchema>wpsSchema/wpsDescribeProcess_response.xsd</includeSchema> 
+            <includeSchema>wpsSchema/Execute_response.xsd</includeSchema> 
 		  </includeSchemas>
 		  <strict>true</strict>
 		  <verbose>true</verbose>       

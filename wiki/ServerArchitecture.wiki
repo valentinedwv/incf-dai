@@ -1,0 +1,40 @@
+#Description of the planned server(s) and development architecture.
+
+= Overview =
+
+INCF atlas services will consist of
+  * Central services (one)
+  * Hub services (multiple)
+
+For example,
+  * Central
+  * X Hub (e.g. ABA Hub)
+  * Y Hub
+  * Z Hub
+
+== Applicable technologies ==
+  * Primary language: Java
+  * Build: Maven
+  * Server: Tomcat (or similar application server)
+  * Application architecture: RESTlets under controlling servlet
+
+= Development Projects =
+
+In the central and 3 hubs example, there would be 5 development projects, e.g. Eclipse projects.
+  * Project Central
+  * Project XHub
+  * Project YHub
+  * Project ZHub
+  * Project Common
+
+The first 4 would be packaged as "war" files.
+
+The Common project would be packaged as a "jar" file. The Common artifact (.jar file) would be a dependency in Central and each of the Hubs. Thus each of the war files would contain specific classes and resources but also the common classes and resources.
+
+The first 4 projects would be deployed as servlets on one or more Tomcat servers. This will support early deployment of a Central and one or more Hubs on a single server, but also later deployment on separate Tomcat servers.
+
+This architecture also supports centralized development of the Central and one or more testbed (pilot, demonstration) Hub projects. Downstream, Hub projects could be spun off to other development teams or entirely new Hub project could be developed independently subject to the INCF Atlas specifications as demonstrated in testbed Hub projects.
+
+= Databases =
+
+Since Central and all Hubs will require databases, these initially may be a single database, but later decentralized as desired.

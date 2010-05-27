@@ -137,21 +137,21 @@ DataInuts keys:
     <td>n/a</td>
     <td>n/a</td>
     <td>Central<br/>All hubs</td>
-    <td></td>
+    <td>XML</td>
   </tr>
   <tr>
     <td>DescribeProcess</td>
     <td>n/a</td>
     <td>n/a</td>
     <td>Central<br/>All hubs</td>
-    <td></td>
+    <td>XML</td>
   </tr>
   <tr>
     <td>Execute</td>
     <td>DescribeSRS</td>
     <td>srsCode</td>
     <td>Central ?<br/>All hubs ?</td>
-    <td></td>
+    <td>XML ?<br/>URI ?<br/>Binary file ?</td>
   </tr>
   <tr>
     <td>Execute</td>
@@ -207,7 +207,7 @@ DataInuts keys:
     <td>GetTransformationChain</td>
     <td>inputSrsCode<br/>targetSrsCode<br/>filter</td>
     <td>Central ?<br/>All hubs ?</td>
-    <td></td>
+    <td>XML ?</td>
   </tr>
   <tr>
     <td>Execute</td>
@@ -227,7 +227,7 @@ DataInuts keys:
     <td>Execute</td>
     <td>TransformPOI</td>
     <td>inputSrsCode<br/>targetSrsCode<br/>x<br/>y<br/>z<br/>filter</td>
-    <td></td>
+    <td>Central ?<br/>All hubs ?</td>
     <td></td>
   </tr>
 </table>

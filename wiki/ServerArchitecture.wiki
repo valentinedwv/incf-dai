@@ -20,12 +20,12 @@ For example,
 
 = Development Projects =
 
-In the central and 3 hubs example, there would be 5 development projects, e.g. Eclipse projects.
-  * Project Central
-  * Project XHub
-  * Project YHub
-  * Project ZHub
-  * Project Common
+In the central and 3 hubs example, there would be 5 development projects, e.g. Eclipse projects, shown with their Maven artifact packaging.
+  * Project Central (war)
+  * Project XHub (war)
+  * Project YHub (war)
+  * Project ZHub (war)
+  * Project Common (jar)
 
 The first 4 would be packaged as "war" files.
 

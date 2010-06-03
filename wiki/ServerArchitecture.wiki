@@ -13,6 +13,9 @@ For example,
   * Y Hub
   * Z Hub
 
+[http://docs.google.com/drawings/pub?id=12qhCBM4JtWspMJGRVQ7ditzBN7HCMq7W3GMp9xyrJ90&w=960&h=720 Atlas Server relationships diagram]
+
+
 == Applicable technologies ==
   * Primary language: Java
   * Build: Maven

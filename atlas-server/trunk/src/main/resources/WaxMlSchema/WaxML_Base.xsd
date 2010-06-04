@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<!--Created with Liquid XML Studio Developer Edition (Education) 8.1.0.2319 (http://www.liquid-technologies.com)-->
-<xs:schema xmlns:ns0="http://www.opengis.net/gml/3.2" xmlns:ns1="http://www.w3.org/1999/xlink" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<!--Created with Liquid XML Studio Developer Edition (Education) 8.1.2.2399 (http://www.liquid-technologies.com)-->
+<xs:schema xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:wax="http://www.incf.org/waxML" xmlns:xlink="http://www.w3.org/1999/xlink" elementFormDefault="qualified" targetNamespace="http://www.incf.org/waxML" version="0.8" xmlns:xs="http://www.w3.org/2001/XMLSchema">
     <xs:import schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd" namespace="http://www.opengis.net/gml/3.2" />
     <xs:import schemaLocation="http://schemas.opengis.net/xlink/1.0.0/xlinks.xsd" namespace="http://www.w3.org/1999/xlink" />
     <xs:complexType name="BaseResponseType">
@@ -12,12 +12,12 @@
         <xs:sequence>
             <xs:element name="timeCreated" type="xs:dateTime" minOccurs="0" maxOccurs="1">
                 <xs:annotation>
-                    <xs:documentation>Time that this process was run, and this document was created</xs:documentation>
+                    <xs:documentation> Time that this process was run, and this document was created</xs:documentation>
                 </xs:annotation>
             </xs:element>
             <xs:element name="queryUrl" minOccurs="0" maxOccurs="1">
                 <xs:annotation>
-                    <xs:documentation>The URL that was used to make this document.
+                    <xs:documentation>                      The URL that was used to make this document.
 Optional</xs:documentation>
                 </xs:annotation>
                 <xs:complexType>
@@ -32,6 +32,9 @@ Optional</xs:documentation>
                 <xs:complexType>
                     <xs:sequence>
                         <xs:element name="input" minOccurs="0" maxOccurs="unbounded">
+                            <xs:annotation>
+                                <xs:documentation>Name of the input parameter, and it's value. This can be any element, eg a gml point</xs:documentation>
+                            </xs:annotation>
                             <xs:complexType>
                                 <xs:complexContent>
                                     <xs:extension base="xs:anyType">
@@ -48,10 +51,10 @@ Optional</xs:documentation>
     <xs:element name="POI" type="POIType" />
     <xs:complexType name="POIType">
         <xs:choice>
-            <xs:element ref="ns0:Point" />
+            <xs:element ref="gml:Point" />
         </xs:choice>
     </xs:complexType>
-    <xs:element name="boundedBy" type="ns0:BoundingShapeType" />
+    <xs:element name="boundedBy" type="gml:BoundingShapeType" />
     <xs:complexType name="CoordinateTransformationInfoType">
         <xs:sequence>
             <xs:element name="coordinateTransformation" minOccurs="1" maxOccurs="unbounded">
@@ -59,8 +62,8 @@ Optional</xs:documentation>
                     <xs:attribute name="order" type="xs:int" use="required" />
                     <xs:attribute name="code" type="xs:string" use="required" />
                     <xs:attribute name="hub" type="xs:Name" use="required" />
-                    <xs:attribute name="inputSrsCode" type="xs:NMTOKEN" use="required" />
-                    <xs:attribute name="targetSrsCode" type="xs:NMTOKEN" use="required" />
+                    <xs:attribute name="inputSrsCode" type="xs:QName" use="required" />
+                    <xs:attribute name="targetSrsCode" type="xs:QName" use="required" />
                     <xs:attribute name="accuracy" type="xs:float" />
                 </xs:complexType>
             </xs:element>
@@ -81,7 +84,13 @@ Optional</xs:documentation>
         <xs:complexContent>
             <xs:extension base="BaseResponseType">
                 <xs:sequence>
-                    <xs:element name="structureTerms" type="StructureTermType" />
+                    <xs:element name="structureTerms" minOccurs="1" maxOccurs="1">
+                        <xs:complexType>
+                            <xs:sequence>
+                                <xs:element xmlns:q1="http://www.incf.org/waxML" name="StructureTerm" type="q1:StructureTermType" minOccurs="0" maxOccurs="unbounded" />
+                            </xs:sequence>
+                        </xs:complexType>
+                    </xs:element>
                 </xs:sequence>
             </xs:extension>
         </xs:complexContent>
@@ -89,14 +98,14 @@ Optional</xs:documentation>
     <xs:complexType name="StructureTermType">
         <xs:sequence>
             <xs:element name="structureCode" type="incfCodeType" />
-            <xs:element name="name" type="incfNameType" minOccurs="0" maxOccurs="1" />
-            <xs:element name="description" type="incfDescriptionType" />
+            <xs:element xmlns:q2="http://www.incf.org/waxML" ref="wax:name" minOccurs="0" maxOccurs="1" />
+            <xs:element ref="description" minOccurs="1" maxOccurs="unbounded" />
             <xs:element name="feature" type="FeatureReferenceType" />
         </xs:sequence>
     </xs:complexType>
     <xs:complexType name="FeatureReferenceType">
         <xs:sequence>
-            <xs:element name="centroid" type="ns0:PointType" minOccurs="0" maxOccurs="1" />
+            <xs:element name="centroid" type="gml:PointType" minOccurs="0" maxOccurs="1" />
             <xs:element ref="boundedBy" />
             <xs:element xmlns:q1="http://www.isotc211.org/2005/gmd" name="Url">
                 <xs:complexType>
@@ -112,20 +121,10 @@ Optional</xs:documentation>
     </xs:complexType>
     <xs:complexType name="incfCodeType">
         <xs:complexContent>
-            <xs:extension base="ns0:CodeWithAuthorityType">
+            <xs:extension base="gml:CodeWithAuthorityType">
                 <xs:attribute name="isDefault" type="xs:boolean" />
-                <xs:attribute ref="ns0:id" />
+                <xs:attribute ref="gml:id" />
             </xs:extension>
-        </xs:complexContent>
-    </xs:complexType>
-    <xs:complexType name="incfNameType">
-        <xs:complexContent>
-            <xs:extension base="ns0:CodeWithAuthorityType" />
-        </xs:complexContent>
-    </xs:complexType>
-    <xs:complexType name="incfDescriptionType">
-        <xs:complexContent>
-            <xs:extension base="ns0:StringOrRefType" />
         </xs:complexContent>
     </xs:complexType>
     <xs:simpleType name="geometryFomatCodeList">
@@ -187,7 +186,7 @@ Optional</xs:documentation>
                         <xs:element name="corner" minOccurs="0" maxOccurs="4">
                             <xs:complexType>
                                 <xs:sequence>
-                                    <xs:element ref="ns0:Point" />
+                                    <xs:element ref="gml:Point" />
                                 </xs:sequence>
                                 <xs:attribute name="position" type="PositionEnum" />
                             </xs:complexType>
@@ -199,7 +198,7 @@ Optional</xs:documentation>
     </xs:complexType>
     <xs:complexType name="incfSrsType">
         <xs:simpleContent>
-            <xs:extension base="xs:NMTOKENS">
+            <xs:extension base="gml:NameList">
                 <xs:attribute name="srsName" type="xs:token" />
             </xs:extension>
         </xs:simpleContent>
@@ -212,4 +211,92 @@ Optional</xs:documentation>
             <xs:enumeration value="bottomright" />
         </xs:restriction>
     </xs:simpleType>
+    <xs:element name="genesResponse" type="GenesResponseType" />
+    <xs:complexType name="GenesResponseType">
+        <xs:complexContent>
+            <xs:extension base="BaseResponseType">
+                <xs:all>
+                    <xs:element name="genesByPOI" type="GeneByPoiType" minOccurs="0" maxOccurs="1" />
+                </xs:all>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:complexType name="GeneByPoiType">
+        <xs:sequence>
+            <xs:element name="gene" type="GeneType" minOccurs="1" maxOccurs="unbounded" />
+            <xs:element name="expressionLevel" type="GeneExpressionLevelType" minOccurs="0" maxOccurs="unbounded" />
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="GeneType">
+        <xs:sequence>
+            <xs:element name="symbol" type="GeneSymbolType" />
+            <xs:element xmlns:q3="http://www.incf.org/waxML/" ref="wax:name" minOccurs="1" maxOccurs="unbounded" />
+            <xs:element name="mgiMarkerAccesionId" type="xs:QName" minOccurs="1" maxOccurs="unbounded" />
+            <xs:element name="organism" type="incfCodeType" minOccurs="1" maxOccurs="unbounded">
+                <xs:annotation>
+                    <xs:documentation>The name of the organism. Use the codespace attribute for any external reference.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="GeneExpressionLevelType">
+        <xs:annotation>
+            <xs:documentation>This is an xlink to another GeneSymbolType element. Eg to link to a gene/symbol[@gml:id=ABc123], a geneExpressionLevel  with this attribute would include this attribute 
+@xlink:href='ABc123'
+</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="geneSymbol" type="GeneSymbolType">
+                <xs:annotation>
+                    <xs:documentation>Contains the code for the geneSymbol. This symbol MUST be found in the gene elements in the genesByPOI list.
+
+The codeSpace attribute can optionally be used to add information to indentify the source.
+xlink can be used to link a gene. Eg to link to a gene/symbol[@gml:id=ABc123], a geneExpressionLevel  with this attribute would include this attribute 
+@xlink:href='ABc123'
+</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="level" type="incfCodeType" minOccurs="1" maxOccurs="unbounded">
+                <xs:annotation>
+                    <xs:documentation>contain whatever the resource has - a number or natural language description such as `strong'. The codeSpace attribute can optionally be used to add information to indentify the source.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="stage" type="incfCodeType" minOccurs="1" maxOccurs="unbounded">
+                <xs:annotation>
+                    <xs:documentation>Contains "NEED REFERNCE"
+The codeSpace attribute can optionally be used to add information to indentify the source.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="resourceUri" type="IncfResourceType" minOccurs="1" maxOccurs="unbounded">
+                <xs:annotation>
+                    <xs:documentation>Contains an URL to a relevant page at the resource</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="GeneSymbolType">
+        <xs:complexContent>
+            <xs:extension base="incfCodeType">
+                <xs:attribute ref="xlink:href">
+                    <xs:annotation>
+                        <xs:documentation>This is an xlink to another GeneSymbolType element. Eg to link to a gene/symbol[@gml:id=ABc123], a geneExpressionLevel  with this attribute would include this attribute 
+@xlink:href='ABc123'
+</xs:documentation>
+                    </xs:annotation>
+                </xs:attribute>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:complexType name="IncfResourceType">
+        <xs:simpleContent>
+            <xs:extension base="xs:anyURI" />
+        </xs:simpleContent>
+    </xs:complexType>
+    <xs:complexType name="IncfNameType">
+        <xs:simpleContent>
+            <xs:extension base="xs:Name" />
+        </xs:simpleContent>
+    </xs:complexType>
+    <xs:element name="name" type="xs:Name" />
+    <xs:element name="description" type="gml:StringOrRefType" />
 </xs:schema>

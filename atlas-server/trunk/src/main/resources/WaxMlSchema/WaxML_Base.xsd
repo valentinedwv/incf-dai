@@ -1,0 +1,215 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!--Created with Liquid XML Studio Developer Edition (Education) 8.1.0.2319 (http://www.liquid-technologies.com)-->
+<xs:schema xmlns:ns0="http://www.opengis.net/gml/3.2" xmlns:ns1="http://www.w3.org/1999/xlink" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:import schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd" namespace="http://www.opengis.net/gml/3.2" />
+    <xs:import schemaLocation="http://schemas.opengis.net/xlink/1.0.0/xlinks.xsd" namespace="http://www.w3.org/1999/xlink" />
+    <xs:complexType name="BaseResponseType">
+        <xs:sequence>
+            <xs:element name="queryInfo" type="QueryInfoType" minOccurs="0" maxOccurs="1" />
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="QueryInfoType">
+        <xs:sequence>
+            <xs:element name="timeCreated" type="xs:dateTime" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>Time that this process was run, and this document was created</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="queryUrl" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>The URL that was used to make this document.
+Optional</xs:documentation>
+                </xs:annotation>
+                <xs:complexType>
+                    <xs:simpleContent>
+                        <xs:extension base="xs:anyURI">
+                            <xs:attribute name="name" type="xs:Name" />
+                        </xs:extension>
+                    </xs:simpleContent>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="criteria" minOccurs="0" maxOccurs="1">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="input" minOccurs="0" maxOccurs="unbounded">
+                            <xs:complexType>
+                                <xs:complexContent>
+                                    <xs:extension base="xs:anyType">
+                                        <xs:attribute name="name" type="xs:Name" />
+                                    </xs:extension>
+                                </xs:complexContent>
+                            </xs:complexType>
+                        </xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="POI" type="POIType" />
+    <xs:complexType name="POIType">
+        <xs:choice>
+            <xs:element ref="ns0:Point" />
+        </xs:choice>
+    </xs:complexType>
+    <xs:element name="boundedBy" type="ns0:BoundingShapeType" />
+    <xs:complexType name="CoordinateTransformationInfoType">
+        <xs:sequence>
+            <xs:element name="coordinateTransformation" minOccurs="1" maxOccurs="unbounded">
+                <xs:complexType>
+                    <xs:attribute name="order" type="xs:int" use="required" />
+                    <xs:attribute name="code" type="xs:string" use="required" />
+                    <xs:attribute name="hub" type="xs:Name" use="required" />
+                    <xs:attribute name="inputSrsCode" type="xs:NMTOKEN" use="required" />
+                    <xs:attribute name="targetSrsCode" type="xs:NMTOKEN" use="required" />
+                    <xs:attribute name="accuracy" type="xs:float" />
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="coordinateTransformationInfoResponse" type="CoordinateTransformationInfoResponseType" />
+    <xs:complexType name="CoordinateTransformationInfoResponseType">
+        <xs:complexContent>
+            <xs:extension base="BaseResponseType">
+                <xs:sequence>
+                    <xs:element name="coordinateTransformationInfo" type="CoordinateTransformationInfoType" />
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:element name="structureTermsResponse" type="StructureTermsResponseType" />
+    <xs:complexType name="StructureTermsResponseType">
+        <xs:complexContent>
+            <xs:extension base="BaseResponseType">
+                <xs:sequence>
+                    <xs:element name="structureTerms" type="StructureTermType" />
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:complexType name="StructureTermType">
+        <xs:sequence>
+            <xs:element name="structureCode" type="incfCodeType" />
+            <xs:element name="name" type="incfNameType" minOccurs="0" maxOccurs="1" />
+            <xs:element name="description" type="incfDescriptionType" />
+            <xs:element name="feature" type="FeatureReferenceType" />
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="FeatureReferenceType">
+        <xs:sequence>
+            <xs:element name="centroid" type="ns0:PointType" minOccurs="0" maxOccurs="1" />
+            <xs:element ref="boundedBy" />
+            <xs:element xmlns:q1="http://www.isotc211.org/2005/gmd" name="Url">
+                <xs:complexType>
+                    <xs:simpleContent>
+                        <xs:extension base="xs:anyURI">
+                            <xs:attribute name="srsName" type="xs:token" />
+                        </xs:extension>
+                    </xs:simpleContent>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="format" type="geometryFomatCodeList" />
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="incfCodeType">
+        <xs:complexContent>
+            <xs:extension base="ns0:CodeWithAuthorityType">
+                <xs:attribute name="isDefault" type="xs:boolean" />
+                <xs:attribute ref="ns0:id" />
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:complexType name="incfNameType">
+        <xs:complexContent>
+            <xs:extension base="ns0:CodeWithAuthorityType" />
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:complexType name="incfDescriptionType">
+        <xs:complexContent>
+            <xs:extension base="ns0:StringOrRefType" />
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:simpleType name="geometryFomatCodeList">
+        <xs:union memberTypes="geomFormatEnum string" />
+    </xs:simpleType>
+    <xs:simpleType name="geomFormatEnum">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="shape" />
+            <xs:enumeration value="SimpleFeaturesText" />
+            <xs:enumeration value="gml-sf" />
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:element name="transformationResponse" type="TransformationResponseType" />
+    <xs:complexType name="TransformationResponseType">
+        <xs:complexContent>
+            <xs:extension base="BaseResponseType">
+                <xs:sequence>
+                    <xs:element ref="POI" />
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:complexType name="ImagesResponseType">
+        <xs:complexContent>
+            <xs:extension base="BaseResponseType">
+                <xs:sequence>
+                    <xs:element name="Image2Dcollection" minOccurs="0" maxOccurs="1">
+                        <xs:complexType>
+                            <xs:sequence>
+                                <xs:element name="image2dType" type="Image2DType" minOccurs="0" maxOccurs="unbounded" />
+                            </xs:sequence>
+                        </xs:complexType>
+                    </xs:element>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:complexType name="Image2DType">
+        <xs:sequence>
+            <xs:element name="imageSource" minOccurs="1" maxOccurs="unbounded">
+                <xs:complexType>
+                    <xs:simpleContent>
+                        <xs:extension base="xs:anyURI">
+                            <xs:attribute name="thumbnanil" type="xs:anyURI" />
+                            <xs:attribute name="metadata" type="xs:anyURI" />
+                            <xs:attribute name="name" type="xs:normalizedString" />
+                            <xs:attribute name="srsName" type="xs:token" />
+                            <xs:attribute name="format" type="xs:token" />
+                            <xs:attribute name="relavance" type="xs:float" />
+                        </xs:extension>
+                    </xs:simpleContent>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="imagePosition">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="imagePlaneEquation" type="incfSrsType" minOccurs="0" maxOccurs="1" />
+                        <xs:element name="imagePlanePlacement " type="incfSrsType" minOccurs="0" maxOccurs="1" />
+                        <xs:element name="corner" minOccurs="0" maxOccurs="4">
+                            <xs:complexType>
+                                <xs:sequence>
+                                    <xs:element ref="ns0:Point" />
+                                </xs:sequence>
+                                <xs:attribute name="position" type="PositionEnum" />
+                            </xs:complexType>
+                        </xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="incfSrsType">
+        <xs:simpleContent>
+            <xs:extension base="xs:NMTOKENS">
+                <xs:attribute name="srsName" type="xs:token" />
+            </xs:extension>
+        </xs:simpleContent>
+    </xs:complexType>
+    <xs:simpleType name="PositionEnum">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="topleft" />
+            <xs:enumeration value="bottomleft" />
+            <xs:enumeration value="topright" />
+            <xs:enumeration value="bottomright" />
+        </xs:restriction>
+    </xs:simpleType>
+</xs:schema>

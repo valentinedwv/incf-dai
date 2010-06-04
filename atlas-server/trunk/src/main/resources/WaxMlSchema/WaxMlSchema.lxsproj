@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+﻿<?xml version="1.0"?>
 <!--Created by Liquid XML Data Binding Libraries (www.liquid-technologies.com) for Liquid Technologies Limited-->
 <XmlStudioProject xmlns:xs="http://www.w3.org/2001/XMLSchema-instance" Version="8.0.7.1998" UseRelativePaths="true">
 	<Project Name="WaxMlSchema">
@@ -7,6 +7,8 @@
 			<File Uri=".\SampleDocuments\TransformResponse.xml"/>
 			<File Uri=".\SampleDocuments\CoordinateTransformInfo.xml"/>
 			<File Uri=".\SampleDocuments\StructureTermsResponse.xml"/>
+			<File Uri=".\SampleDocuments\GeneResponse.xml"/>
+			<File Uri=".\SampleDocuments\StructureTermsResponse_v2.xml"/>
 		</SubGroup>
 		<SubGroup Name="Schemas">
 			<File Uri="http://schemas.opengis.net/gml/3.2.1/gml.xsd"/>

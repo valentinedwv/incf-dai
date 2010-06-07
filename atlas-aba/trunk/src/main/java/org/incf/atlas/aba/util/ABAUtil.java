@@ -1,12 +1,13 @@
 package org.incf.atlas.aba.util;
+	   
+import org.incf.atlas.aba.resource.ABAServiceVO;
+import org.incf.atlas.aba.util.ABAConfigurator;
 
 import generated.CoordinateTransformationChain;
 import generated.CoordinateTransformationChainResponse;
 import generated.ObjectFactory;
 import generated.QueryInfo;
 import generated.CoordinateTransformationChain.CoordinateTransformation;
-
-import org.incf.atlas.server.hubs.aba.resource.ABAServiceVO;
 
 public class ABAUtil {
 
@@ -15,7 +16,7 @@ public class ABAUtil {
 	public CoordinateTransformationChainResponse getCoordinateTransformationChain(ABAServiceVO vo, CoordinateTransformationChainResponse coordinateChain) {
 
 		System.out.println("Start - getCoordinateTransformationChain Method...");
-
+ 
 		try { 
 
 			System.out.println("Start - transformation matrix process...");
@@ -533,7 +534,7 @@ public class ABAUtil {
 		 		  		//transformationURL4 = "http://" + abaTransformationMatrixURLPrefix + "request=SpaceTransformation&amp;fromSRSCode=" + vo.getFromSRSCodeFour() + "&amp;toSRSCode=" + vo.getToSRSCodeFour() + "&amp;x=&amp;y=&amp;z=&amp;output=xml";
 		 		  		code = vo.getFromSRSCodeFour() + "2" + vo.getToSRSCodeFour(); 
 		 		    	orderNumber = "4";
-		 		    	CoordinateTransformation coordinateTransformation = new CoordinateTransformation();
+		 		    	CoordinateTransformation coordinateTransformation = new CoordinateTransformation(); 
 		 				coordinateTransformation.setCode(code);
 		 				coordinateTransformation.setHub(implementingHub4);
 		 				coordinateTransformation.setInputSrsCode(vo.getFromSRSCodeFour());

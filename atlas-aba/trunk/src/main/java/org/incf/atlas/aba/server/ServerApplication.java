@@ -1,5 +1,6 @@
 package org.incf.atlas.aba.server;
 
+import org.incf.atlas.aba.resource.CoordinateTransformationChainResource;
 import org.restlet.Application;
 import org.restlet.Component;
 import org.restlet.Restlet;

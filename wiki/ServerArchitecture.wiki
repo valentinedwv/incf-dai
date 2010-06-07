@@ -1,8 +1,6 @@
 #labels Featured
 #Description of the planned server(s) and development architecture.
 
-[http://docs.google.com/drawings/pub?id=12qhCBM4JtWspMJGRVQ7ditzBN7HCMq7W3GMp9xyrJ90&w=829&h=602 http://docs.google.com/drawings/pub?id=12qhCBM4JtWspMJGRVQ7ditzBN7HCMq7W3GMp9xyrJ90&w=829&h=602&nonsense=something_that_ends_with.png]
-
 = Overview =
 
 INCF atlas services will consist of
@@ -15,7 +13,7 @@ For example,
   * Y Hub
   * Z Hub
 
-
+[http://docs.google.com/drawings/pub?id=12qhCBM4JtWspMJGRVQ7ditzBN7HCMq7W3GMp9xyrJ90&w=829&h=602 http://docs.google.com/drawings/pub?id=12qhCBM4JtWspMJGRVQ7ditzBN7HCMq7W3GMp9xyrJ90&w=829&h=602&nonsense=something_that_ends_with.png]
 
 == Applicable technologies ==
   * Primary language: Java

@@ -151,7 +151,7 @@ DataInuts keys:
     <td>DescribeSRS</td>
     <td>srsCode</td>
     <td>Central ?<br/>All hubs ?</td>
-    <td>XML ?<br/>URI ?<br/>Binary file ?</td>
+    <td>XML</td>
   </tr>
   <tr>
     <td>Execute</td>
@@ -204,23 +204,9 @@ DataInuts keys:
   </tr>
   <tr>
     <td>Execute</td>
-    <td>GetCoverage</td>
-    <td>TBD</td>
-    <td>Central ?<br/>All hubs ?</td>
-    <td></td>
-  </tr>
-  <tr>
-    <td>Execute</td>
     <td>GetGenesByPOI</td>
     <td>srsCode<br/>x<br/>y<br/>z<br/></td>
     <td>ABA hub only</td>
-    <td></td>
-  </tr>
-  <tr>
-    <td>Execute</td>
-    <td>GetMap</td>
-    <td>TBD</td>
-    <td>Central ?<br/>All hubs ?</td>
     <td></td>
   </tr>
   <tr>
